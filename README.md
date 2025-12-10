@@ -8,7 +8,7 @@ It is recommended to run this in a Google Colab environment.
 
 ## 프로젝트 개요
 
-본 저장소는 데이터 전처리 단계부터 모델 학습 단계까지의 전체 워크플로우를 포함하고 있습니다.  
+본 저장소는 데이터 수집, 전처리 단계부터 모델 학습 단계까지의 전체 워크플로우를 포함하고 있습니다.  
 채점 환경에 따라 다음 항목들을 확인 및 수정해주시면 감사하겠습니다.
 
 - **DataPreprocessing.ipynb** 상단의 `drive mount` 설정  
@@ -18,6 +18,9 @@ It is recommended to run this in a Google Colab environment.
 ---
 
 ## 파일 구성
+
+### 0. gathering/
+KBO 공식 홈페이지로부터 데이터를 수집하고, 초기 전처리를 수행하는 .py 파일이 포함되어 있습니다. 수집 및 초기 전처리가 완료된 파일이 dataset/ 에 저장되어 있으나, 참고용으로 첨부하였습니다.
 
 ### 1. DataPreprocessing.ipynb
 데이터셋을 기반으로 전처리를 수행하는 노트북입니다. 결측값 처리, 라벨 인코딩, 데이터 분할 등 모델 학습을 위한 사전 작업을 포함합니다.  
