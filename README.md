@@ -29,7 +29,7 @@ It is recommended to run this in a Google Colab environment.
 
 채점 환경이 Google Colab 환경이 아닐 경우, 하단의 `!pip install optuna` 구문을 주석 처리해주시면 됩니다. Drive 연동 역시 환경에 맞게 조정 부탁드립니다.
 
-3. dataset/
+### 3. dataset/
 모델 학습에 사용된 전처리 전 데이터셋이 포함되어 있습니다.
 실행 환경에 따라 상대 경로나 절대 경로를 적절히 설정하여 노트북에서 로딩할 수 있도록 구성되어 있습니다.
 dataset/processed/ 디렉토리에는 DataPreprocessing.ipynb를 통해 생성된 전처리 후 데이터가 저장되며, ModelTraining.ipynb는 이 전처리된 파일들을 불러와 학습을 수행합니다.
