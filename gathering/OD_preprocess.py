@@ -32,7 +32,7 @@ def process_batters_data_preserve_order():
                 df = df[~mask_remove].copy()
             
  
-            # 2. AVG(타율) 시점 변경 (경기 후 -> 경기 전)
+            # 2. AVG(타율) 시점 변경 (경기 후 -> 경기 전) - data leakage 방지
             
             df['avg'] = pd.to_numeric(df['avg'], errors='coerce').fillna(0.0)
             
