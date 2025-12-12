@@ -21,7 +21,7 @@ def process_batters_data_preserve_order():
             if 'date' in df.columns:
                 df['date'] = pd.to_datetime(df['date'])
             
-            # 1. 2024년 10월 1일 KT vs SSG 타이브레이커 경기 제거
+            # 1. 2024년 10월 1일 KT vs SSG 타이브레이커 경기 제거 (경기 로그 데이터에 포함되어있지 않음)
             mask_date = (df['date'] == '2024-10-01')
             mask_team = (df['team'].str.contains('KT')) | (df['team'].str.contains('SSG'))
             mask_remove = mask_date & mask_team
