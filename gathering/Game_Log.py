@@ -184,7 +184,7 @@ def scrape_regular_season(year_from=2001, year_to=2025, out_dir=OUT_DIR):
                 ).sort_values(["date", "away_team", "home_team"]).reset_index(drop=True)
                 out_path = out_dir / f"games_{year}.csv"
                 df.to_csv(out_path, index=False, encoding="utf-8-sig")
-                print(f"[OK] {year}: {len(df)} games → {out_path}")
+                print(f"{year}: {len(df)} games → {out_path}")
             else:
                 print(f"[WARN] {year}: no regular-season games found")
     finally:
