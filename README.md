@@ -37,6 +37,9 @@ The notebooks are configured to load data using relative or absolute paths suita
 * `dataset/processed/`: Stores data processed by `DataPreprocessing.ipynb`.
 * `ModelTraining.ipynb` loads files from this directory.
 
+#### 4. zips/
+Contains the original compressed dataset files. This directory does not interact directly with the code.
+
 ---
 
 ## 프로젝트 개요
