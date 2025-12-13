@@ -49,10 +49,18 @@ If the grading environment is Conda-based, use this file to reconstruct the envi
 
 ## Environment & Grading Notes
 Access methods, external storage (Google Drive) availability, and package installation permissions may vary by system. Please check:
+
 1. **Enable/Disable drive mount code**
 2. **Verify file paths match the environment**
 3. **Check `!pip install optuna` line**
 4. **Verify dataset and zip file paths**
+
+--
+
+## Execution Order
+
+1. Run **`DataPreprocessing.ipynb`** → Generates preprocessed data
+2. Run **`ModelTraining.ipynb`** → Performs model training and evaluation
 
 ---
 
