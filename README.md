@@ -27,6 +27,10 @@ A notebook for preprocessing the dataset. It includes tasks such as missing valu
 
 *Note: If not running on Google Colab, please comment out the `drive mount` code at the top.*
 
+### 2. ModelTraining.ipynb
+A notebook for training the model using the preprocessed data. It includes hyperparameter optimization using **Optuna**.  
+*Note: If not running on Google Colab, please comment out `!pip install optuna`. Also, adjust the Drive connection settings according to your environment.*
+
 ---
 
 ## 프로젝트 개요
