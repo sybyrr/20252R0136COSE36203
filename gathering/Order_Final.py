@@ -144,6 +144,7 @@ if __name__ == "__main__":
     
     print(f"[{start_year} ~ {end_year}] 데이터 수집 작업을 시작합니다.")
     
+    # 연도별로 games_{year}.csv(일정/결과 파일) 기반 날짜 목록을 읽어 크롤링 수행
     for year in range(start_year, end_year + 1):
         input_filename = f"games_{year}.csv"
         
