@@ -33,10 +33,12 @@ def setup_driver(headless=True):
     return driver
 
 def find_select_by_partial_id(driver, partial_id):
+    """id에 partial_id가 포함된 <select> 요소를 찾아 반환"""
     elems = driver.find_elements(By.XPATH, f"//select[contains(@id,'{partial_id}')]")
     return elems[0] if elems else None
 
 def click_search_if_exists(driver):
+    """검색/조회 버튼이 있으면 클릭(없으면 월 select 기반 postback 등 대체 시도)"""
     btns = driver.find_elements(By.XPATH, "//*[contains(@id,'btnSearch') and (self::a or self::button or self::input)]")
     if btns:
         btns[0].click()
@@ -66,6 +68,7 @@ def wait_tbody_change(driver, old_html, timeout=8):
     return False
 
 def set_series_regular(driver):
+    """시리즈(정규/포스트시즌 등)에서 '정규'로 설정"""
     sel = find_select_by_partial_id(driver, "ddlSeries")
     if not sel:
         return
@@ -105,6 +108,7 @@ def set_year_month(driver, year, month):
     wait_tbody_change(driver, old_html=old, timeout=8)
 
 def parse_month_table(html, season_year):
+    """월별 스케줄 표 HTML을 파싱해 경기 기록(list of dict)으로 변환"""
     soup = BeautifulSoup(html, "lxml")
     tbodies = soup.find_all("tbody")
     if not tbodies:
@@ -162,6 +166,7 @@ def parse_month_table(html, season_year):
     return records
 
 def scrape_regular_season(year_from=2001, year_to=2025, out_dir=OUT_DIR):
+    """지정 연도 범위의 정규시즌 경기 결과를 월 단위로 순회하며 CSV 저장"""
     out_dir.mkdir(parents=True, exist_ok=True)
     driver = setup_driver(headless=True)
     driver.get(BASE_URL)
