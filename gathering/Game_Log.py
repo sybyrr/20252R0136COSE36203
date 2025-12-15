@@ -121,6 +121,7 @@ def parse_month_table(html, season_year):
             tds = tr.find_all("td")
             if not tds:
                 continue
+            # 날짜 셀(day)에서 mm.dd 추출
             day_td = tr.find("td", {"class": "day"})
             if day_td:
                 m = re_mmdd.search(day_td.get_text(strip=True))
@@ -131,6 +132,7 @@ def parse_month_table(html, season_year):
                     date_in_row = datetime(season_year, int(mm), int(dd)).strftime("%Y-%m-%d")
                 except Exception:
                     date_in_row = None
+            # 경기 정보 셀(play)에서 팀/스코어 추출
             play_td = tr.find("td", {"class": "play"})
             if not (play_td and date_in_row):
                 continue
@@ -145,6 +147,7 @@ def parse_month_table(html, season_year):
             else:
                 away_team = spans_direct[0].get_text(strip=True)
                 home_team = spans_direct[-1].get_text(strip=True)
+            # 점수는 em 내부 span들에서 숫자만 수집(원정/홈 순)
             em = play_td.find("em")
             nums = []
             if em:
