@@ -1,3 +1,4 @@
+#게임 로그 수집 (KBO 공식 사이트)
 import re
 import time
 from collections import defaultdict
