@@ -1,3 +1,4 @@
+# 선발 라인업 데이터 전처리 
 import pandas as pd
 import glob
 import os
