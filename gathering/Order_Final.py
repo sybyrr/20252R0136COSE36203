@@ -1,3 +1,4 @@
+# 선발 라인업 데이터 수집 (KBO 공식 홈페이지)
 import time
 import pandas as pd
 import os
@@ -24,6 +25,7 @@ def setup_driver():
     return driver
 
 def get_batter_info(driver, game_date):
+    """특정 날짜(game_date)의 경기 목록을 순회하며 선발 타자(타순/이름/타율) 수집"""
     results = []
     date_str = game_date.strftime('%Y%m%d')
     url = f"https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate={date_str}"
@@ -142,6 +144,7 @@ if __name__ == "__main__":
     
     print(f"[{start_year} ~ {end_year}] 데이터 수집 작업을 시작합니다.")
     
+    # 연도별로 games_{year}.csv(일정/결과 파일) 기반 날짜 목록을 읽어 크롤링 수행
     for year in range(start_year, end_year + 1):
         input_filename = f"games_{year}.csv"
         
